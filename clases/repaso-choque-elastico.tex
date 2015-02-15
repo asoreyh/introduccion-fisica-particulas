@@ -1,0 +1,276 @@
+\documentclass[xetex,mathserif,serif,10pt]{beamer}
+%\documentclass[xetex,mathserif,serif,10pt,handout]{beamer}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage[absolute,overlay,quiet]{textpos}
+\usepackage{commath}
+\usepackage{etaremune}
+\usepackage{wasysym}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont{Linux Libertine O}
+\chardef\&="E050
+
+\usepackage[margin=10pt,font=small,labelfont=bf,textfont=it,labelsep=colon,singlelinecheck=false,justification=justified]{caption}
+\usepackage[spanish]{babel}
+%\usepackage[final,expansion=true,protrusion=true,spacing=true,kerning=true]{microtype}
+
+\mode<presentation> {
+  % \hypersetup{pdfpagemode=FullScreen} %para poner en modo fullscreen de una
+  % \usetheme{Boadilla} % Pretty neat, soft color.
+  % \usecolortheme{orchid}
+  \definecolor{chart00}{rgb}{0.00,0.00,0.00}
+  \definecolor{chart01}{rgb}{0.00,0.27,0.53}
+  \definecolor{chart02}{rgb}{1.00,0.26,0.05}
+  \definecolor{chart03}{rgb}{1.00,0.83,0.13}
+  \definecolor{chart04}{rgb}{0.34,0.62,0.11}
+  \definecolor{chart05}{rgb}{0.49,0.00,0.13}
+  \definecolor{chart06}{rgb}{0.51,1.15,1.00}
+  \definecolor{chart07}{rgb}{0.19,0.25,0.02}
+  \definecolor{chart08}{rgb}{0.68,0.81,0.00}
+  \definecolor{chart09}{rgb}{0.29,0.12,0.44}
+  \definecolor{chart10}{rgb}{1.00,0.58,0.05}
+  \definecolor{chart11}{rgb}{0.77,0.00,0.04}
+  \definecolor{chart12}{rgb}{0.00,0.52,0.82}
+  \definecolor{chart13}{rgb}{1.00,1.00,1.00}
+  \definecolor{beamer@blendedblue}{rgb}{0.,0.27,0.53}
+
+  \setbeamercolor{normal text}{fg=black}
+  \setbeamercolor{alerted text}{fg=chart11}
+  \setbeamercolor{example text}{fg=chart08}
+  %\setbeamercovered{transparent}%transparencia en las pausas
+  %\beamertemplatetransparentcovereddynamicmedium
+  %\setbeamertemplate{navigation symbols}{}
+  \setbeamercolor{author}{fg=chart05}
+}
+
+\logo{\includegraphics[height=1.5cm]{logo-uis.png}}
+\newcommand{\bblock}[1]{{\color{chart12}{#1}}}
+\newcommand{\bc}[1]{
+  \begin{center}
+  #1
+  \end{center}
+}
+\newcommand{\mb}[1]{\mathbf{#1}}
+
+\newcommand{\be}[2]{
+  \vspace{-0.5em}
+  \begin{equation}\label{#2}
+    #1
+  \end{equation}
+  \vspace{-1em}
+}
+
+\newcommand{\bet}[3]{
+  \vspace{-0.5em}
+  \begin{equation}\label{#2}
+    \mathrm{#3:}\quad #1
+  \end{equation}
+  \vspace{-1em}
+}
+
+\def \unidad 	  {01}
+\def \clase 	  {05}
+\def \contenido {Colisiones}
+\def \contone	  {colisionales}
+\def \fecha 	  {20130917}
+\def \dia	      {M}
+\def \autor     {HA}
+\def \file	{\unidad-\clase-\fecha\dia-\autor-\contone.pdf}
+
+\title[\contone]{Introducción a la Física de Partículas\\\vspace*{1cm}\unidad-\clase\\\contenido}
+\author[H. Asorey]{\Large{Hernán Asorey}}
+\institute[hasorey@uis.edu.co]{
+	Escuela de Física, Universidad Industrial de Santander\\
+	Bucaramanga, Colombia\\
+	\color{chart09}{\large{hasorey@uis.edu.co}}\\
+	\color{chart05}{\large{\fecha\dia}}
+}
+\date[\fecha\dia]{\color{chart07}{\file}}
+
+\begin{document}
+%\tikzstyle{every picture}+=[remember picture]
+%\everymath{\displaystyle}
+
+\begin{comment}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\titlepage
+%\end{frame}
+
+\logo{}
+
+% \begin{textblock*}{22mm}(100mm,0.25\textheight)
+% \begin{exampleblock}
+% \tiny{Kotera et al, ARAA49:119(2011)53}
+% \end{exampleblock}
+% \end{textblock*}
+% \begin{textblock*}{35mm}(90mm,0.00\textheight)
+% 	\begin{alertblock}{Posibles fuentes}
+% 		\begin{itemize}
+% 			\item AGN
+% 			\item Magnetars
+% 			\item GRBs
+% 		\end{itemize}
+% 	\end{alertblock}
+% \end{textblock*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formulerío}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Choque elástico}
+\begin{columns}
+\column{0.6\textwidth}
+\begin{alertblock}{Magnitudes conservadas}
+\begin{itemize}
+\item Energía total: $E_i=E_f$
+\item Cantidad de movimiento: $\mathbf{p}_i = \mathbf{p}_f$
+\end{itemize}
+\end{alertblock}
+\column{0.4\textwidth}
+\begin{exampleblock}{Magnitudes constantes}
+\begin{itemize}
+\item Energía cinética: $E_{k,i}=E_{k,f}$
+\end{itemize}
+\end{exampleblock}
+\end{columns}
+Entonces, sean dos cuerpos de masas $m_1$ y $m_2$ moviéndose con velocidades iniciales $\mathbf{u}_1$ y $\mathbf{u}_2$. Luego del choque, sus velocidades finales serán $\mb{v}_1$ y $\mb{v}_2$:
+\begin{itemize}
+\item Conservación de la cantidad de movimiento: 
+\be{
+\mathbf{p}_i = \mathbf{p}_f \to m_1 \mb{u}_1 + m_2 \mb{u}_2 =  m_1 \mb{v}_1 + m_2 \mb{v}_2
+}{EQImpulso}
+\item Constancia de la energía cinética:
+\be{
+E_{k,i}=E_{k,f} \to \frac12 m_1 \mb{u}_1^2 + \frac12 m_2 \mb{u}_2^2 =  \frac12 m_1 \mb{v}_1^2 + \frac12 m_2 \mb{v}_2^2
+}{EQCinetica}
+y entonces
+\be{
+m_1 u_1^2 + m_2 u_2^2 =  m_1 v_1^2 + m_2 v_2^2
+}{EQCin}
+\end{itemize}
+\begin{block}{Estado Final: 2 ecuaciones con 2 incognitas}
+A partir de las condiciones iniciales, y sabiendo que es un choque elástico, ¿podemos determinar las condiciones finales ($\mb{v}_1$ y $\mb{v}_2$)?
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Álgebra}
+\begin{enumerate}
+\item Estamos en 1D, trabajamos con los módulos de las velocidades
+\item Reordenamos (\ref{EQImpulso}), juntando las velocidades iniciales y finales de cada cuerpo:
+\be{
+    - m_1 (u_1 - v_1) = m_2 (u_2-v_2)
+}{EQImp1}
+\item y lo mismo para la energía cinética (\ref{EQCin}):
+\be{
+m_2 (u_2^2 - v_2^2) = - m_1 (u_1^2 - v_1^2) \nonumber
+}{EQCin0}
+\item usando diferencia de cuadrados, $a^2-b^2=(a-b)(a+b)$,
+\be{
+m_2 (u_2-v_2)(u_2+v_2) = - m_1 (u_1 - v_1) (u_1+v_1)
+}{EQCin1}
+\item mirando fijamente y comparando (\ref{EQImp1}) con (\ref{EQCin1}), vemos que:
+\be{u_2+b_2 = u_1 + v_1 \to (u_2 - u_1) = - (v_2 - v_1) \to \Delta u = - \Delta v
+}{EQCin2}
+\item con lo cual, podemos despejar, por ejemplo, $v_2$:
+\be{v_2=u_1+v_1-u2}{EQVels}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Más álgebra, ya casi}
+\begin{enumerate}
+\setcounter{enumi}{6}      %% Offset en numero de problema
+\item Podemos utilizar (\ref{EQVels}), para poner todo en función de $v_1$, y despejar $v_1$. Partimos de (\ref{EQImp1}):
+\be{
+    m_2(u_2 - u_1 + u_2 - v_1) = - m_1 (u_1 - v_1)
+}{EQVel0}
+\item y tratamos de juntar las velocidades $v_1$:
+\be{
+    m_2(2 u_2 - u_1) - m_2 v_1 = - m_1 u_1 + m_1 v_1
+}{EQVel1}
+\item insistimos,
+\begin{eqnarray*}
+    m_2 (2 u_2 - u_1) + m_1 u_1 &=& (m_1 + m_2) v_1 \\
+    2 m_2 u_2 - m_2 u_1 + m_1 u_1 &=& (m_1 + m_2) v_1 \\
+    2 m_2 u_2 - (m_1 - m_2) u_1 &=& (m_1 + m_2) v_1 \\
+\end{eqnarray*}
+\vspace{-1em}
+\item y finalmente,
+\be{
+    v_1 = \frac{m_1 - m_2}{m_1 + m_2} u_1 + \frac{2 m_2}{m_1+m_2} u_2
+}{EQV1}
+
+\item Cambiando los índices $1 \leftrightarrow 2$, obtenemos $v_2$:
+\be{
+    v_2 = \frac{2 m_1}{m_1+m_2} u_1 - \frac{m_1-m_2}{m_1+m_2} u_2
+}{EQV2}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Casos límites}
+\begin{itemize}
+\item \bblock{autos chocadores}, $m_1=m_2$: \alert{¡Las velocidades se intercambian!}
+\begin{eqnarray*}
+    v_1 = \frac{m_1 - m_2}{m_1 + m_2} u_1 + \frac{2 m_2}{m_1+m_2} u_2 &\to& v_1 = u_2 \\
+    v_2 = \frac{2 m_1}{m_1+m_2} u_1 - \frac{m_1-m_2}{m_1+m_2} u_2 &\to& v_2 = u_1
+\end{eqnarray*}
+\vspace{-1em}
+
+\item \bblock{Billar}, $m_1=m_2, u_2=0$: \alert{¡La primera bola se queda quieta!}
+\begin{eqnarray*}
+    v_1 = \frac{m_1 - m_2}{m_1 + m_2} u_1 + \frac{2 m_2}{m_1+m_2} u_2 &\to& v_1 = 0 \\
+    v_2 = \frac{2 m_1}{m_1+m_2} u_1 - \frac{m_1-m_2}{m_1+m_2} u_2 &\to& v_2 = u_1
+\end{eqnarray*}
+\vspace{-1em}
+
+\item \bblock{Camión vs taxi, elástico}, $m_1 \gg m_2$: \alert{Pobre taxista...}
+\begin{eqnarray*}
+    v_1 = \frac{m_1 - m_2}{m_1 + m_2} u_1 + \frac{2 m_2}{m_1+m_2} u_2 &\to&  v_1 \approx u_1 \\
+    v_2 = \frac{2 m_1}{m_1+m_2} u_1 - \frac{m_1-m_2}{m_1+m_2} u_2 &\to& v_2 \approx 2 u_1
+\end{eqnarray*}
+\vspace{-1em}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Casos límites}
+\begin{itemize}
+\item \bblock{Choque contra una pared}, $u_2=0, m_2\to\infty$: \alert{¡Rebote!}
+\\
+{\tiny{(el viejo truco, saco $m_2$ como factor común, y hago tender al límite)}}
+\begin{eqnarray*}
+    v_1 = \frac{m_1 - m_2}{m_1 + m_2} u_1 + \frac{2 m_2}{m_1+m_2} u_2 &\to& v_1 \simeq - u_1 \\
+    v_2 = \frac{2 m_1}{m_1+m_2} u_1 - \frac{m_1-m_2}{m_1+m_2} u_2 &\to& v_2 \simeq 0
+\end{eqnarray*}
+\vspace{-1em}
+\item Vectorialmente, cambia sólo la coordenada donde está la pared.
+\item Imaginemos una pelota de masa $m$ con velocidad $\mb{u}=(u_x,u_y,u_z)$, que choca una pared en $x=1$. Al llegar a $x=1$, entonces
+\begin{eqnarray*}
+    v_x &=& - u_x \\
+    v_y &=&  u_y \\
+    v_z &=&  u_z 
+\end{eqnarray*}
+\begin{center}\alert{Pensar una pelota chocando contra una pared}\end{center}
+\item La velocidad final es entonces $\mb{v}=(-u_x,u_y,u_z)$.
+\end{itemize}
+
+\end{frame}
+
+
+
+\end{document}
+
+
+\end{document}

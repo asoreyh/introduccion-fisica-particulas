@@ -1,0 +1,156 @@
+\documentclass[xetex,mathserif,serif,10pt]{beamer}
+%\documentclass[xetex,mathserif,serif,10pt,handout]{beamer}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage[absolute,overlay,quiet]{textpos}
+\usepackage{commath}
+\usepackage{etaremune}
+\usepackage{wasysym}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont{Linux Libertine O}
+\chardef\&="E050
+
+\usepackage[margin=10pt,font=small,labelfont=bf,textfont=it,labelsep=colon,singlelinecheck=false,justification=justified]{caption}
+\usepackage[spanish]{babel}
+\usepackage[final,expansion=true,protrusion=true,spacing=true,kerning=true]{microtype}
+
+\mode<presentation> {
+  %\hypersetup{pdfpagemode=FullScreen} %para poner en modo fullscreen de una
+  \usetheme{Boadilla} % Pretty neat, soft color.
+  \usecolortheme{orchid}
+  \definecolor{chart00}{rgb}{0.00,0.00,0.00}
+  \definecolor{chart01}{rgb}{0.00,0.27,0.53}
+  \definecolor{chart02}{rgb}{1.00,0.26,0.05}
+  \definecolor{chart03}{rgb}{1.00,0.83,0.13}
+  \definecolor{chart04}{rgb}{0.34,0.62,0.11}
+  \definecolor{chart05}{rgb}{0.49,0.00,0.13}
+  \definecolor{chart06}{rgb}{0.51,1.15,1.00}
+  \definecolor{chart07}{rgb}{0.19,0.25,0.02}
+  \definecolor{chart08}{rgb}{0.68,0.81,0.00}
+  \definecolor{chart09}{rgb}{0.29,0.12,0.44}
+  \definecolor{chart10}{rgb}{1.00,0.58,0.05}
+  \definecolor{chart11}{rgb}{0.77,0.00,0.04}
+  \definecolor{chart12}{rgb}{0.00,0.52,0.82}
+  \definecolor{chart13}{rgb}{1.00,1.00,1.00}
+  \definecolor{beamer@blendedblue}{rgb}{0.,0.27,0.53}
+  \setbeamercolor{normal text}{fg=black}
+  \setbeamercolor{alerted text}{fg=chart11}
+  \setbeamercolor{example text}{fg=chart08}
+  %\setbeamercovered{transparent}%transparencia en las pausas
+  %\beamertemplatetransparentcovereddynamicmedium
+  %\setbeamertemplate{navigation symbols}{}
+  \setbeamercolor{author}{fg=chart05}
+}
+
+%\hspace{10em}
+%\logo{\includegraphics[height=1.0cm]{garland_iteda_logo.png}}
+%
+
+
+\def \unidad 	{01}
+\def \clase 	{01}
+\def \contenido {Introducción general}
+\def \contone	{introduccion}
+\def \fecha 	{20130903}
+\def \dia	{M}
+\def \autor     {HA}
+\def \file	{\unidad-\clase-\fecha\dia-\autor-\contone.pdf}
+
+\title[\contone]{Introducción a la Física de Partículas\\\vspace*{1cm}\unidad-\clase\\\contenido}
+\author[H. Asorey]{\Large{Hernán Asorey}}
+\institute[hasorey@uis.edu.co]{
+	Escuela de Física, Universidad Industrial de Santander\\
+	Bucaramanga, Colombia\\
+	\color{chart09}{\large{hasorey@uis.edu.co}}\\
+	\color{chart05}{\large{\fecha\dia}}
+}
+\date[\fecha\dia]{\color{chart07}{\file}}
+
+\begin{document}
+%\tikzstyle{every picture}+=[remember picture]
+%\everymath{\displaystyle}
+
+\begin{comment}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rayos cósmicos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{frame}
+\Huge{\alert{Los Rayos Cósmicos}}
+\begin{columns}
+\column{0.50\textwidth}
+%{\centering \includegraphics[width=0.55\columnwidth]{./figs/rc/hess_c.jpg}}
+\column{0.50\textwidth}
+\vspace*{1cm}
+\begin{flushright}
+\small{
+{\it{The results of my observations are best explained by the assumption that a\\
+radiation of very great penetrating power enters our atmosphere from above.}}\\
+- Victor Hess\\
+Physikalische Zeitschrift (1912)
+}
+\end{flushright}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Producción}
+	\framesubtitle{Aceleración y Decaimiento}
+	\begin{exampleblock}{Aceleración: Fermi + difusión}
+		\begin{columns}
+			\column{0.60\textwidth}
+			\begin{itemize}
+				\item Segundo orden: ($\beta_c \to 0$): $\overline{\Delta E}/E \propto \beta_c^2$
+				\item Primer orden: (SNR, $\beta_s \sim 0.03$): $\overline{\Delta E}/E \simeq \beta_s$
+				\item Espectro tipo ley de potencia:
+					\begin{equation*}
+					\alpha = \frac{\ln (1-p_\mathrm{esc})}{\ln \left (1 + \overline{\Delta E}/E \right)} -1 \to \alpha = -2
+				\end{equation*}
+		\end{itemize}
+		\column{0.40\textwidth}
+%		\includegraphics[width=0.90\columnwidth]{figs/rc/hillas_kotera2011_c.png}
+		% \begin{textblock*}{22mm}(100mm,0.25\textheight)
+		% \begin{exampleblock}
+		% \tiny{Kotera et al, ARAA49:119(2011)53}
+		% \end{exampleblock}
+		% \end{textblock*}
+	\end{columns}
+\end{exampleblock}
+
+\begin{textblock*}{35mm}(90mm,0.00\textheight)
+	\begin{alertblock}{Posibles fuentes}
+		\begin{itemize}
+			\item AGN
+			\item Magnetars
+			\item GRBs
+		\end{itemize}
+	\end{alertblock}
+\end{textblock*}
+\begin{block}{Decaimiento}<2->
+	\begin{itemize}
+		\item Decaimiento de partículas supermasivas $X$, $m_X \gtrsim 10^{21}$\,eV
+		\item Todos los modelos predicen $n_\gamma \simeq n_\nu \gg n_{\mathrm{nucleones}}$
+		\item Flujos predichos inconsistentes con las observaciones de composición a UHE
+	\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\end{document} 

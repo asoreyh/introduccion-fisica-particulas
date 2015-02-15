@@ -1,0 +1,282 @@
+\documentclass[xetex,mathserif,serif,10pt]{beamer}
+%\documentclass[xetex,mathserif,serif,10pt,handout]{beamer}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage[absolute,overlay,quiet]{textpos}
+\usepackage{commath}
+\usepackage{etaremune}
+\usepackage{wasysym}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont{Linux Libertine O}
+\chardef\&="E050
+
+\usepackage[margin=10pt,font=small,labelfont=bf,textfont=it,labelsep=colon,singlelinecheck=false,justification=justified]{caption}
+\usepackage[spanish]{babel}
+\usepackage[final,expansion=true,protrusion=true,spacing=true,kerning=true]{microtype}
+
+\mode<presentation> {
+  %\hypersetup{pdfpagemode=FullScreen} %para poner en modo fullscreen de una
+  \usetheme{Boadilla} % Pretty neat, soft color.
+  \usecolortheme{orchid}
+  \definecolor{chart00}{rgb}{0.00,0.00,0.00}
+  \definecolor{chart01}{rgb}{0.00,0.27,0.53}
+  \definecolor{chart02}{rgb}{1.00,0.26,0.05}
+  \definecolor{chart03}{rgb}{1.00,0.83,0.13}
+  \definecolor{chart04}{rgb}{0.34,0.62,0.11}
+  \definecolor{chart05}{rgb}{0.49,0.00,0.13}
+  \definecolor{chart06}{rgb}{0.51,1.15,1.00}
+  \definecolor{chart07}{rgb}{0.19,0.25,0.02}
+  \definecolor{chart08}{rgb}{0.68,0.81,0.00}
+  \definecolor{chart09}{rgb}{0.29,0.12,0.44}
+  \definecolor{chart10}{rgb}{1.00,0.58,0.05}
+  \definecolor{chart11}{rgb}{0.77,0.00,0.04}
+  \definecolor{chart12}{rgb}{0.00,0.52,0.82}
+  \definecolor{chart13}{rgb}{1.00,1.00,1.00}
+  \definecolor{beamer@blendedblue}{rgb}{0.,0.27,0.53}
+
+  \setbeamercolor{normal text}{fg=black}
+  \setbeamercolor{alerted text}{fg=chart11}
+  \setbeamercolor{example text}{fg=chart08}
+  %\setbeamercovered{transparent}%transparencia en las pausas
+  %\beamertemplatetransparentcovereddynamicmedium
+  %\setbeamertemplate{navigation symbols}{}
+  \setbeamercolor{author}{fg=chart05}
+  \AtBeginSection[]
+  {
+    \begin{frame}
+      \frametitle{Contenidos}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }
+}
+
+\logo{\includegraphics[height=1.5cm]{logo-uis.png}}
+
+\newcommand{\fig}[2][1.0]{
+  \begin{center}
+    \includegraphics[width=#1\columnwidth]{{./figs/#2}}
+  \end{center}
+}
+
+\newcommand{\cblock}[2]{{\large{\bf{\color{chart#1}{#2}}}}}
+
+\newcommand{\sblock}[2]{\bf{\color{chart#1}{#2}}}
+
+\newcommand{\bc}[1]{
+  \begin{center}
+  #1
+  \end{center}
+}
+
+\newcommand{\be}[2]{
+  \vspace{-0.5em}
+  \begin{equation}\label{#2}
+    #1
+  \end{equation}
+  \vspace{-1em}
+}
+
+\def \unidad    {01}
+\def \clase     {05}
+\def \contenido {Colisiones}
+\def \contone   {colisional}
+\def \fecha     {20130917}
+\def \dia       {M}
+\def \autor     {HA}
+\def \file  {\unidad-\clase-\fecha\dia-\autor-\contone.pdf}
+
+\title[\contone]{Introducción a la Física de Partículas\\\vspace*{1cm}\unidad-\clase\\\contenido}
+\author[H. Asorey]{\Large{Hernán Asorey}}
+\institute[hasorey@uis.edu.co]{
+	Escuela de Física, Universidad Industrial de Santander\\
+	Bucaramanga, Colombia\\
+	\color{chart09}{\large{hasorey@uis.edu.co}}\\
+	\color{chart05}{\large{\fecha\dia}}
+}
+\date[\fecha\dia]{\color{chart07}{\file}}
+
+\begin{document}
+%\tikzstyle{every picture}+=[remember picture]
+%\everymath{\displaystyle}
+
+
+\begin{comment}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+\logo{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formulerío}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Formulerío}
+  \framesubtitle{Porque alguna vez había que hacerlo}
+  \begin{columns}
+    \column{0.50\textwidth}
+    \small{
+      \begin{eqnarray} 
+        \mathrm{Dispersión}      & E^2 = m^2+\mathbf{p}^2                                                  \label{EQDispersion} \\
+        \mathrm{Minkowsky}       & \eta = (1, -1, -1, -1)                                                  \label{EQMinkowsky} \\
+        \mathrm{Métrica}         & \mathbf{g}\mathbf{g}^{-1} = g_{\nu\rho} g^{\mu\rho} = \delta^\mu_\nu    \label{EQMetrica} \\
+        \mathrm{Ortogonalidad}   & g_{\mu\nu} \Lambda^{\mu}_{\rho} \Lambda^{\nu}_{\sigma} = g_{\rho\sigma} \label{EQOrto} \\
+        \mathrm{Contravar.}      & (t,\mathbf{r}) = a^\mu = g^{\mu\nu} a_\nu                               \label{EQContra} \\
+        \mathrm{Covar.}          & (t,-\mathbf{r}) = a_\mu = g_{\mu\nu} a^\nu                              \label{EQCova} \\
+        \mathrm{TL\ directa}     & a'^\mu = \left ( \Lambda \right )^\sigma_\mu a^\sigma                   \label{EQTrfContra} \\
+        \mathrm{TL\ inversa}     & a'_\mu = \left ( \Lambda^{-1} \right )^\sigma_\mu a_\sigma              \label{EQTrfCova} \\
+        \mathrm{Relación\ TL}    & \left (\Lambda^{-1} \right )^\sigma_\mu = g_{\mu\nu} \Lambda^{\nu}_{\rho} g^{\rho\sigma} \label {EQLorInv} \\ 
+        \mathrm{P.\ interno}     & \mathbf{a}\cdot\mathbf{b}\equiv a_\mu b^\mu = a^\mu b_\mu                \label{EQPInterno}\\ 
+        \mathrm{Der\ Cov}        & \frac{\partial}{\partial^\mu} \equiv \partial_\mu = \left( \frac{\partial}{\partial t}, \nabla \right) \label{EQDerCov} \\
+        \mathrm{Der\ Contra}     & \frac{\partial}{\partial_\mu} \equiv \partial^\mu = \left(\frac{\partial}{\partial t}, -\nabla \right) \label{EQDerContra}
+      \end{eqnarray}
+    }
+    \column{0.50\textwidth}
+    \small{
+      \begin{eqnarray}
+        \mathrm{Dalambert}   & \partial_\mu \partial^\mu = \left(\frac{\partial^2}{\partial t^2} - \nabla^2 \right) \equiv \square \label{EQDalambert} \\
+        \mathrm{Impulso}     & p^\mu \equiv (E,\mathbf{p}) \label{EQEneMom} \\
+        \mathrm{Masa\ inv}   & p^\mu p_\mu \equiv p^2 = E^2 -\mathbf{p}^2 = m_0^2 \label{EQMasaInvariante} \\
+        \mathrm{Tasa\ Dec}   & \Gamma \to \tau = \Gamma^{-1}  \label{EQTasa} \\
+        \mathrm{Branching}   & \frac{\Gamma_i}{\Gamma_{\mathrm{tot}} \equiv \sum_i \Gamma_i} \label{EQBranching}\\
+      \end{eqnarray}
+    }
+  \end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Repaso clase anterior}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{(covariantes $\cdot$ contravariantes) $\to$ invariantes}
+  \begin{itemize}
+    \item \alert{La composición de dos TL es una TL}
+    \item \alert{El producto interno en Minkowsky $\mathbf{a}\cdot\mathbf{b}\equiv a_\mu b^\mu = a^\mu b_\mu$ es invariante ante transformaciones de Lorentz}
+    \item Tres invariantes famosos tres
+    \begin{itemize}
+      \item \alert{Invariante $ds^2$}:
+        \begin{equation}
+          ds^2 \equiv dx^\mu dx_\mu = d(ct)^2 - (dx)^2 - (dy)^2 - (dz)^2
+        \end{equation}
+      \item \alert{Derivadas parciales}:
+        \begin{equation}
+          \frac{\partial}{\partial^\mu} \equiv \partial_\mu = \left( \frac{\partial}{\partial t}, \nabla \right)
+          \qquad \mathrm{y} \qquad
+          \frac{\partial}{\partial_\mu} \equiv \partial^\mu = g^{\mu\nu} \partial_\nu = \left(\frac{\partial}{\partial t}, -\nabla \right)
+        \end{equation}
+        y luego, el invariante es el operador \alert{D'alambertiano}:
+        \begin{equation}
+          \partial_\mu \partial^\mu = \left(\frac{\partial^2}{\partial t^2} - \nabla^2 \right) \equiv \square
+        \end{equation}
+      \item \alert{Cuadrivector Energía-momento}: Recordando clase 01-01: $E=\gamma m_0$ y $\mathbf{p}=\gamma m_0 \mathbf{v}$, podemos formar un cuadrivector:
+        \begin{equation}
+          p^\mu \equiv (E,\mathbf{p}) \qquad \mathrm{y} \qquad  p_\mu = g_{\mu\nu} p^\nu \equiv (E,-\mathbf{p})
+        \end{equation}
+        \begin{equation}
+          p^\mu p_\mu \equiv p^2 = E^2 -\mathbf{p}^2 = m_0^2
+        \end{equation}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{``Probabilística''}
+  \tiny{
+    \begin{columns}
+      \column{0.50\textwidth}
+      \begin{itemize}
+        \item Sea un muón en reposo que fue creado a $t=t_0$
+        \item En $t$, la ``edad'' es $\Delta t \equiv (t-t_0)$
+        \item ¿Cuál es la probabilidad de que el muón decaiga entre $\Delta t$ y $\Delta t + dt$?
+        \item \alert{¿Depende de $\Delta t$?} $\to$ {\bf{\alert{¡NO!}}}
+        \item Llamemos \sblock{12}{$\Gamma$} a la \sblock{12}{probabilidad de decaimiento por unidad de tiempo}. 
+        \item \sblock{12}{$\Gamma$} es la \sblock{12}{tasa de decaimiento}. 
+        \item Luego, para $N_0$ muones a $t=t_0$, $dN=-\Gamma N_0 dt$, y entonces
+          \be{N(t)=N_0 e^{-\Gamma t}}{EQLexp}
+        \item La prob. de encontrar {\bf aún} al muón a tiempo $t$ es 
+          \be{P(t) = \frac1\Gamma e^{-\Gamma t} = \tau e^{-{\frac t\tau}},\ \tau\equiv\frac1\Gamma}{EQPexp}
+        \item Y por ende, la probabilidad de decaimiento será 
+          \be{P(t) = 1 - \tau e^{-{\frac t\tau}}}{EQPdec}
+        \item $\tau$ (\sblock{12}{vida media}) es el promedio de los tiempos de vida de las partículas
+        \item Propiedad de falta de memoria: 
+          \vspace{-0.5em}
+          \[{ P[t>(\Delta t + dt) | t>\Delta t] = P[t>dt] }\]
+          \vspace{-1.0em}
+      \end{itemize}
+      \column{0.50\textwidth}
+      \begin{itemize}
+        \item Tres modos de decaimiento
+        \begin{eqnarray*}
+          \mu^- \to e^- \bar{\nu_e} \nu_\mu         &\quad& \approx 100\%\\
+          \mu^- \to e^- \bar{\nu_e} \nu_\mu \gamma  &\quad& 1.4\times10^{-2}\\
+          \mu^- \to e^- \bar{\nu_e} \nu_\mu e^+ e^- &\quad& 3.4\times10^{-5}
+        \end{eqnarray*}
+        \item Como siempre, a priori no podremos determinar, cuál seguirá, y con que probabilidad (lo haremos)
+        \item Cada modo, tendrá su propia \sblock{12}{tasa de decaimiento $\Gamma_i$}:
+          \be{\Gamma_{\mathrm{tot}} = \sum_{i=1}^N \Gamma_i,\ \tau = \frac 1 \Gamma_{\mathrm{tot}} }{EQDecayRate}
+        \item Con esto, queda definido el
+        \bc{{\bf{\alert{\emph{Branching ratio}}} $\equiv \Gamma_i / \Gamma_{\mathrm{tot}}$.}}
+        \vspace{-0em}
+        \[ \mu^- \to e^- \bar{\nu_e} \nu_\mu,\quad \Gamma_i / \Gamma_{\mathrm{tot}} \approx 100\% \]
+      \end{itemize}
+    \end{columns}
+  }
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Colisional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Decaimiento}
+  \cblock{10}{Decaimiento}: Proceso espontáneo donde el estado inicial asintótico corresponde a una única partícula y el estado final a un número no estipulado a priori de partículas diferentes a la original (si no, ¡sería una emisión!)
+    \begin{columns}
+    \column{0.40\textwidth}
+    \fig[0.8]{u01/xi0.jpg}
+    \column{0.60\textwidth}
+    \begin{eqnarray*}
+      \color{chart05}{K^-} p &\to& \Xi^0 K^0 \color{chart04}{\pi^-}  \color{chart12}{\pi^+} \\
+      K^0                    &\to& \color{chart04}{\pi^-}  \color{chart12}{\pi^+} \\
+      \Xi^0                  &\to& \Lambda^0 \pi^0 \\
+      \pi^0                  &\to& \color{chart11}{e^-} \color{chart03}{e^+} \\
+      \Lambda^0              &\to& \color{chart04}{\pi^-} \color{chart09}{p} 
+    \end{eqnarray*}
+    {\bc{\cblock{11}{``Cascade'' particle}}}
+    \begin{itemize}
+      \item En general, pensamos a este proceso como $\mathrm{madre}\to\mathrm{hija}_1\cdots\mathrm{hija_n}$
+      \item La conservación del cuadri-impulso implica
+        \be{p_{\mathrm{inicial}} = p_{\mathrm{final}} \Rightarrow p = \sum_{i=0}^n p_i}{EQConsCuad}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Decaimiento}
+    \begin{columns}
+      \column{0.40\textwidth}
+      \fig[0.7]{u01/decay.png}
+      Estado inicial: partícula masa $M$ en reposo
+      \be{p^2 = M^2, p^\mu=(M,\vec{0})}{EQDecay01}
+      Estado final: $m_1$ y $m_2$\\
+      \be{p_1^2 = m_1^2, p^\mu=(E_1,\vec{p_1})}{EQDecay02}
+      \be{p_2^2 = m_2^2, p^\mu=(E_2,\vec{p_2})}{EQDecay03}
+      \cblock{11}{Sug: use los invariantes}
+      \column{0.60\textwidth}
+      \begin{itemize}
+        \item $p\cdot p_i$ es invariante
+    \end{columns}
+\end{frame}
+
+
+\end{document}
